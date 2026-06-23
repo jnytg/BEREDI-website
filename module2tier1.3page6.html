@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Reflection and Challenge </title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+    }
+
+    .intro-container{
+      position:relative;
+      width:100%;
+      height:100vh;
+    }
+
+  .intro-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
+
+    .next-btn{
+      position:absolute;
+      bottom:40px;
+      right:40px;
+      padding:15px 30px;
+      font-size:18px;
+      background:#00796b;
+      color:white;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .complete-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00c6ff;
+  color: black;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* 📱 MOBILE / TABLET */
+@media (max-width: 600px) {
+  .complete-btn {
+    right: 50%;
+    transform: translateX(50%);
+    width: 85%;
+    text-align: center;
+  }
+}
+    .next-btn:hover{
+      background:#004d40;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="intro-container">
+
+  <img src="assets/images/6_Reflection-and-Challenge.png" alt="Reflection and Challenge">
+
+  
+
+</div>
+<button class="next-btn" onclick="goNext()">Complete Module →</button>
+
+<script>
+function goNext(){
+
+  // Get existing progress or create new
+  let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+moduleData["module5"] = "completed";
+
+localStorage.setItem("moduleData", JSON.stringify(moduleData));
+
+window.location.href = "modules.html";
+}
+</script>
+
+</body>
+</html>

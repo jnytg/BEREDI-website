@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Participants Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    .header {
+      padding: 20px;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .email {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .value {
+      font-size: 16px;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #e53e3e;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="name" id="userName"></div>
+  <div class="email" id="userEmail"></div>
+</div>
+
+<button class="logout-btn" onclick="logout()">Logout</button>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <!-- EXISTING CARD -->
+  <div class="card" onclick="goTo('modules.html')">
+    <div class="icon">📚</div>
+    <div class="title">Training Materials</div>
+    <div class="value">View Modules</div>
+  </div>
+
+  <!-- NEW: CONTINUE WHERE LEFT OFF -->
+  <div class="card" onclick="continueModule()">
+    <div class="icon">▶️</div>
+    <div class="title">Continue Training</div>
+    <div class="value">Resume where you left off</div>
+  </div>
+
+  <!-- NEW: QUIZ RECORDS -->
+  <div class="card" onclick="openRecordModal()">
+  <div class="icon">📋</div>
+  <div class="title">Quiz Records</div>
+  <div class="value">Click to View Details</div>
+</div>
+
+  <!-- EXISTING CARD -->
+  <div class="card" onclick="checkForm()">
+    <div class="icon">📝</div>
+    <div class="title">Commitment Form</div>
+    <div class="value">Submit</div>
+  </div>
+
+  <!-- EXISTING CARD -->
+  <div class="card" onclick="handleCertificateClick()">
+    <div class="icon">📄</div>
+    <div class="title">Certificate</div>
+    <div class="value" id="certText">Locked 🔒</div>
+  </div>
+
+
+</div>
+
+<script>
+
+  // =========================
+// LOAD QUIZ RECORDS
+// =========================
+function openRecordModal(){
+
+    let quizRecords = JSON.parse(localStorage.getItem("quizRecords")) || [];
+
+    if (quizRecords.length === 0) {
+        document.getElementById("recordContent").innerHTML = "No records yet.";
+    } else {
+
+        let output = "";
+
+        quizRecords.forEach(record => {
+            output += `
+                <div style="margin-bottom:10px;">
+                    <strong>${record.module}</strong><br>
+                    Score: ${record.score}/${record.total}<br>
+                    Status: ${record.status}<br>
+                    Date: ${record.date}
+                    <hr>
+                </div>
+            `;
+        });
+
+        document.getElementById("recordContent").innerHTML = output;
+    }
+
+    document.getElementById("recordModal").style.display = "block";
+}
+
+function closeRecordModal(){
+    document.getElementById("recordModal").style.display = "none";
+}
+
+
+// =========================
+// CONTINUE WHERE LEFT OFF
+// =========================
+function continueModule(){
+
+    let currentModule = localStorage.getItem("currentModule");
+
+    if (!currentModule) {
+        window.location.href = "module1.html";
+        return;
+    }
+
+    window.location.href = currentModule + ".html";
+}
+
+
+// =========================
+// CERTIFICATE LOGIC
+// =========================
+function checkCertificateStatus(){
+
+    let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+    let allCompleted =
+        moduleData["module1"] === "completed" &&
+        moduleData["module2"] === "completed" &&
+        moduleData["module3"] === "completed" &&
+        moduleData["module4"] === "completed";
+
+    const certText = document.getElementById("certText");
+
+    if (allCompleted) {
+        certText.innerText = "Download Certificate 🎉";
+    } else {
+        certText.innerText = "Complete all modules 🔒";
+    }
+
+    return allCompleted;
+}
+
+
+// =========================
+// CERTIFICATE BUTTON
+// =========================
+function handleCertificateClick(){
+
+    if (checkCertificateStatus()) {
+        window.location.href = "certificate.html";
+    } else {
+        alert("⚠️ Complete all modules first.");
+    }
+}
+
+
+// =========================
+// INIT
+// =========================
+window.addEventListener("DOMContentLoaded", function () {
+    checkCertificateStatus();
+});
+
+/* USER */
+const user = JSON.parse(localStorage.getItem("user"));
+
+if (user) {
+  document.getElementById("userName").textContent = user.name;
+  document.getElementById("userEmail").textContent = user.email;
+}
+
+/* =========================
+   CONTINUE MODULE
+========================= */
+function continueModule(){
+
+  let currentModule = localStorage.getItem("currentModule");
+
+  if (!currentModule) {
+    alert("No progress found. Starting Module 1.");
+    window.location.href = "module1.html";
+    return;
+  }
+
+  window.location.href = currentModule + ".html";
+}
+
+/* =========================
+   QUIZ / MODULE RECORDS
+========================= */
+function loadRecords(){
+
+  let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+  let output = "";
+
+  let modules = ["module1", "module2", "module3", "module4"];
+
+  modules.forEach(mod => {
+
+    if (moduleData[mod] === "completed") {
+      output += "✅ " + mod + " completed<br>";
+    }
+    else if (moduleData[mod] === "unlocked") {
+      output += "🔓 " + mod + " unlocked<br>";
+    }
+    else {
+      output += "🔒 " + mod + " locked<br>";
+    }
+
+  });
+
+  document.getElementById("quizRecord").innerHTML = output;
+}
+
+/* NAVIGATION */
+function goTo(page) {
+  window.location.href = page;
+}
+
+/* FORM */
+function checkForm() {
+  alert("Commitment form logic here");
+}
+
+/* CERTIFICATE */
+function handleCertificateClick() {
+  alert("Certificate logic here");
+}
+
+/* LOGOUT */
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "logout.html";
+}
+
+/* INIT */
+window.addEventListener("DOMContentLoaded", function () {
+  loadRecords();
+});
+
+</script>
+<div id="recordModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+z-index:9999;
+">
+
+  <div style="
+    background:white;
+    color:black;
+    width:90%;
+    max-width:600px;
+    margin:80px auto;
+    padding:20px;
+    border-radius:10px;
+  ">
+
+    <h2>📋 Quiz Records</h2>
+    <div id="recordContent"></div>
+
+    <br>
+    <button onclick="closeRecordModal()">Close</button>
+
+  </div>
+</div>
+</body>
+</html>

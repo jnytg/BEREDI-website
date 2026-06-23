@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BEREDI - About</title>
+
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' rx='20' fill='%2322c55e'/>
+      <text x='50' y='62' font-size='48' text-anchor='middle' fill='white' font-family='Arial'>⛪</text>
+    </svg>">
+
+
+  <link href="https://fonts.cdnfonts.com/css/braven" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6f3f3;
+    }
+
+   
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #b5cce4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Braven', sans-serif;
+      font-size: 2.2rem;
+      color: #1e3a8a;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background-color: #1e3a8a;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #476869;
+    }
+
+   
+    @media (max-width: 1024px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #b5cce4;
+        width: 220px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 1050;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+  <h1 class="logo">BEREDI</h1>
+
+  
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="mission.html">Mission & Vision</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="programs.html">Programs</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="bg-[#b5cce4] py-16 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-[#1e3a8a]">
+      About BEREDI
+    </h2>
+    <p class="text-base md:text-lg text-[#0f172a]">
+      BEREDI is a faith-driven, church-based movement committed to preparing and mobilizing
+      churches to respond to disasters with compassion and coordination.
+    </p>
+  </div>
+</section>
+
+<section class="py-16 px-4">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]">  We aim to:</h3>
+      <p>
+  
+
+<p><strong><li>Strengthen church-based disaster preparedness systems.</li></strong></p>
+
+<p><strong><li>Train volunteers in emergency response and coordination.</li></strong></p>
+
+<p><strong><li>Promote community resilience through education and planning.</li></strong></p>
+
+<p><strong><li>Build partnerships with local and global organizations.</li></strong></p>
+
+<p><strong><li>We are committed to transforming churches into active agents of safety, compassion, and restoration.</li></strong></p>
+      </p>
+    </div>
+
+
+
+         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]">Our Core Focus Areas</h3>
+      <p>
+     
+ <p><strong>Readiness</strong></p>
+
+<li>We conduct preparedness training, risk assessments, and resource planning to ensure churches are ready before disasters happen.</li>
+
+ <p><strong>Response</strong></p>
+
+<li>We mobilize volunteers, distribute relief goods, coordinate evacuation efforts, and provide spiritual and emotional care during crises.</li>
+
+ <p><strong>Recovery</strong></p>
+
+<li>We support rebuilding efforts, community rehabilitation, and trauma care to help families restore stability.</li>
+
+ <p><strong>Mitigation & Prevention</strong></p>
+
+<li>We educate communities on risk reduction strategies and sustainable practices to minimize disaster impact.</li>
+      </p>
+    </div>
+
+     <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]">Our Team Projects</h3>
+<p>
+      BEREDI’s work is driven by dedicated volunteers, church leaders, and disaster response coordinators who lead impactful projects such as:
+
+<li>Community Disaster Preparedness Workshops</li>
+
+<li>Emergency Response Simulations</li>
+
+<li>Church-Based Relief Distribution Systems</li>
+
+<li>Volunteer Training Programs</li>
+
+<li>Partner Mapping & Coordination Initiatives</li>
+
+<li>Resource Mobilization Campaigns</li>
+
+ <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]"></h3>
+<p>
+
+       We envision a <strong> global network of churches</strong> equipped and united in disaster response—serving as beacons of hope before, during, and after emergencies.</p>
+</div>
+Each project is designed to strengthen local churches and improve coordinated disaster action at the grassroots level.
+ </p>
+    </div>
+
+
+  </div>
+</section>
+
+<footer class="bg-[#0f0f0f] text-center text-sm text-gray-300 py-6">
+  <p>&copy; 2025 BEREDI. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

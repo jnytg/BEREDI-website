@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Training | BEREDI</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<input type="hidden" name="source" value="training">
+
+<body class="bg-[#1e3a8a] text-white">
+
+<nav class="bg-[#1e3a8a] px-6 py-4 shadow-md">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">BEREDI</h1>
+    <ul class="flex space-x-6 text-sm text-gray-200">
+      <li><a href="index.html" class="hover:text-[#b5cce4]">Home</a></li>
+      <li><a href="about.html" class="hover:text-[#b5cce4]">About</a></li>
+     <li><a href="contact.html" class="hover:text-[#b5cce4]">Contact</a></li>
+      <li><a href="training.html" class="font-semibold text-[#b5cce4]">Training</a></li>
+      <li><a href="programs.html" class="hover:text-[#b5cce4]">Programs</a></li>
+      <li><a href="trainingmaterials.html" class="hover:text-[#b5cce4]">Training Materials</a></li>
+       <li><a href="modules.html" class="hover:text-[#b5cce4]">Modules</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="py-16 px-6 text-center bg-[#0e162b]">
+  <h2 class="text-4xl font-extrabold mb-4 text-[#7ac7c7]">
+    Training Registration
+  </h2>
+  <p class="text-gray-300 text-lg max-w-xl mx-auto">
+    Sign up for our upcoming physical training and be equipped to respond during disasters.
+  </p>
+</section>
+
+
+<section class="py-20 px-6 bg-[#0e162b]">
+  <div class="max-w-3xl mx-auto bg-[#162a4f] p-8 rounded-lg shadow-lg">
+
+    <form id="berediForm" class="space-y-6">
+
+      <div>
+        <label class="block mb-1 text-sm">Full Name</label>
+        <input type="text" name="name" required
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Email Address</label>
+        <input type="email" name="email" required
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Contact Number</label>
+        <input type="tel" name="contact" required
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Church / Organization</label>
+        <input type="text" name="church"
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Address</label>
+        <input type="text" name="address"
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Training Level</label>
+        <select name="level" required
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+          <option disabled selected>Select training type</option>
+          <option value="Readiness">Readiness</option>
+          <option value="Response">Response</option>
+          <option value="Recovery">Recovery</option>
+          <option value="Mitigation">Mitigation & Prevention</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Date</label>
+        <input type="date" name="date"
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Message / Notes</label>
+        <textarea name="message" rows="4"
+          class="w-full px-4 py-2 rounded-md bg-[#475569] text-black"></textarea>
+      </div>
+
+      <button type="submit"
+        class="w-full py-3 bg-[#4f8c8c] hover:bg-[#6fbcbc] text-[#0e162b] font-bold rounded-md">
+        Submit Training Registration
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+<footer class="bg-[#1e3a8a] text-center text-sm text-gray-200 py-6">
+  &copy; 2025 BEREDI. All rights reserved.
+</footer>
+
+
+<script>
+const form = document.getElementById("berediForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxfUUjfnv_i8_KmLeAlWZz5zZd0kAWKBuZyQyIMX7gLx8vRNWfgRFP-cbEEkwnC25Ljsg/exec",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+    document.body.innerHTML = `
+      <div style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0e162b;color:white;text-align:center;padding:20px;">
+        <h1 style="font-size:2rem;color:#7ac7c7;">✅ Registration Successful</h1>
+        <p>Your training registration has been saved.</p>
+        <a href="index.html" style="margin-top:20px;padding:12px 20px;background:#4f8c8c;color:#0e162b;border-radius:8px;font-weight:bold;text-decoration:none;">
+          Return to Home
+        </a>
+      </div>
+    `;
+  } catch (error) {
+    alert("❌ Submission failed. Please try again.");
+    console.error(error);
+  }
+});
+</script>

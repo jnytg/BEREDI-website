@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BEREDi | Module 1.2 – Tier 1.2 Auto-Graded Quiz</title>
+  <meta name="description" content="Auto-graded 8-point quiz for BEREDi Module 1.2 (Tier 1.2). Correct answers hidden; UI shows only score and pass/fail." />
+  <style>
+    :root{
+      --brand:#0a5b78; --ink:#1a202c; --muted:#4a5568; --bg:#f7fafc; --card:#fff; --border:#e2e8f0;
+      --ok:#145a32; --warn:#7a1a1a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+    header{background:linear-gradient(90deg,var(--brand),#0b3c4a);color:#fff;padding:32px 16px;border-bottom:6px solid #083342}
+    header .container{max-width:960px;margin:0 auto}
+    h1{margin:0 0 6px;font-size:clamp(1.4rem,2.6vw,2rem)}
+    .subtitle{margin:0;opacity:.95}
+    main{max-width:960px;margin:0 auto;padding:24px 16px 56px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.03);padding:18px;margin-bottom:18px}
+    fieldset{border:1px solid var(--border);border-radius:12px;padding:14px;margin:14px 0}
+    legend{font-weight:700;color:var(--brand)}
+    .q{margin:12px 0 8px;font-weight:600}
+    .opt{display:block;margin:8px 0;padding:8px;border-radius:8px;border:1px solid transparent}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    button,.btn{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}
+    .btn.secondary{background:#f2f6f8;color:#0b3c4a;border:1px solid var(--border)}
+    .note{font-size:.9rem;color:var(--muted);margin-top:8px}
+    #result{display:none;margin-top:16px;padding:14px;border-radius:12px;border:1px solid var(--border)}
+    #result.pass{background:#eef8f0;color:var(--ok);border-color:#bfe3c6}
+    #result.fail{background:#fff0f0;color:var(--warn);border-color:#f3c1c1}
+    @media (prefers-color-scheme: dark){
+      body{background:#0b1014;color:#e6eef4}
+      .card{background:#121a21;border-color:#1f2a33}
+      fieldset{border-color:#263544}
+      .btn.secondary{background:#0f171d;color:#d9eef8}
+      #result.pass{background:#0d1a12;color:#a4d7b2;border-color:#1c4228}
+      #result.fail{background:#1b1010;color:#f3b6b6;border-color:#512121}
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="container">
+      <h1>Module 1.2 – Tier 1.2 Disaster Preparedness and Response</h1>
+      <p class="subtitle">Church-Based Disaster Preparedness – 7-Point Quiz (Auto-graded)</p>
+    </div>
+  </header>
+
+  <main role="main">
+    
+      <h2>Quiz</h2>
+
+      
+      <form id="quizForm" action="https://script.google.com/macros/s/AKfycbwEGz8f26cVqw_dPegeiTmil20bNWiXwQ7keLVPta1KTci84Gui3_0n3DMqox96FTql/exec" method="POST" target="hidden_iframe" onsubmit="return showResult()">
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+      </form>
+    <input type="hidden" name="formType" value="quiz">
+    <input type="hidden" name="email" id="email" value="">
+    <input type="hidden" name="score" id="score">
+
+
+
+      <fieldset>
+        <legend>1. Biblical Foundation</legend>
+        <div class="q">Q1. Why is the church compared to Noah’s ark during disasters?</div>
+        <label class="opt"><input type="radio" name="q1" value="A"> A. It is a place for worship only</label>
+        <label class="opt"><input type="radio" name="q1" value="B"> B. It shelters people in times of danger and offers salvation</label>
+        <label class="opt"><input type="radio" name="q1" value="C"> C. It is built on water like the ark</label>
+        <label class="opt"><input type="radio" name="q1" value="D"> D. It floats above the storm</label>
+
+        <div class="q">Q2. According to Ecclesiastes 4:9–10, what key principle of preparedness is emphasized?</div>
+        <label class="opt"><input type="radio" name="q2" value="A"> A. Self-reliance</label>
+        <label class="opt"><input type="radio" name="q2" value="B"> B. Unity and mutual support</label>
+        <label class="opt"><input type="radio" name="q2" value="C"> C. Stockpiling goods</label>
+        <label class="opt"><input type="radio" name="q2" value="D"> D. Avoiding risk</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. The Role of the Local Church</legend>
+        <div class="q">Q3. What are practical ways a church can serve as a refuge during disasters?</div>
+        <label class="opt"><input type="radio" name="q3" value="A"> A. Hosting concerts and sports</label>
+        <label class="opt"><input type="radio" name="q3" value="B"> B. Opening doors for evacuation, feeding, and counseling</label>
+        <label class="opt"><input type="radio" name="q3" value="C"> C. Providing loans to members</label>
+        <label class="opt"><input type="radio" name="q3" value="D"> D. Building fences around the property</label>
+
+        <div class="q">Q4. Why is spiritual support equally important as physical aid?</div>
+        <label class="opt"><input type="radio" name="q4" value="A"> A. It prevents boredom in evacuation centers</label>
+        <label class="opt"><input type="radio" name="q4" value="B"> B. It helps restore hope, faith, and emotional healing</label>
+        <label class="opt"><input type="radio" name="q4" value="C"> C. It reduces relief costs</label>
+        <label class="opt"><input type="radio" name="q4" value="D"> D. It fulfills legal requirements</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Volunteerism and Compassion</legend>
+        <div class="q">Q5. What is the focus of volunteerism in disaster preparedness?</div>
+        <label class="opt"><input type="radio" name="q5" value="A"> A. Gaining recognition for church projects</label>
+        <label class="opt"><input type="radio" name="q5" value="B"> B. Serving others as an expression of Christ’s compassion</label>
+        <label class="opt"><input type="radio" name="q5" value="C"> C. Collecting funds for church expansion</label>
+        <label class="opt"><input type="radio" name="q5" value="D"> D. Promoting competition among ministries</label>
+
+        <div class="q">Q6. Who should be prioritized when serving during disasters?</div>
+        <label class="opt"><input type="radio" name="q6" value="A"> A. Those with the most social influence</label>
+        <label class="opt"><input type="radio" name="q6" value="B"> B. The young and strong</label>
+        <label class="opt"><input type="radio" name="q6" value="C"> C. The vulnerable—children, elderly, and persons with disabilities</label>
+        <label class="opt"><input type="radio" name="q6" value="D"> D. Church leaders only</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Strength of the Church Network</legend>
+        <div class="q">Q7. What is one major advantage of having a connected church network during crises?</div>
+        <label class="opt"><input type="radio" name="q7" value="A"> A. It reduces the workload of the government</label>
+        <label class="opt"><input type="radio" name="q7" value="B"> B. It allows sharing of resources, information, and support</label>
+        <label class="opt"><input type="radio" name="q7" value="C"> C. It encourages competition among districts</label>
+        <label
+        
+     
+       <form id="quizForm">
+        
+  <button type="submit">Submit Quiz</button>
+</form>
+
+
+ 
+
+  <p id="quizResult" style="font-weight:bold; margin-top:10px;"></p>
+</section>
+
+<script>
+// Fill hidden email from registration
+document.getElementById("email").value = localStorage.getItem("userEmail");
+
+function showResult() {
+    let score = 0;
+    if (document.querySelector('input[name="q1"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q2"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q3"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q4"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q5"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q6"]:checked')?.value === "correct") score++;
+    if (document.querySelector('input[name="q7"]:checked')?.value === "correct") score++;
+
+    const resultText = score >= 2 ? "PASS" : "FAIL";
+    document.getElementById("score").value = resultText;
+
+    
+     // Show inline result to user
+    const resultEl = document.getElementById("quizResult");
+    resultEl.textContent = "Your Result: " + resultText;
+    resultEl.style.color = resultText === "PASS" ? "green" : "red";
+
+    return true; // allow form submission
+}
+</script>
+        
+            <a class="btn btn-primary" href="thankyou.html">Home Page</a>
+    
+       

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Disaster Response Training Quiz TIER 1.1 and 1.2</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding:40px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+}
+
+.question{
+    margin-bottom:25px;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    background:#2c6bed;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1c4fcc;
+}
+
+.result{
+    margin-top:25px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Disaster Response Training Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. Which Bible story is the biblical foundation for disaster response compassion?</p>
+<label><input type="radio" name="q1" value="A"> A. Prodigal Son</label><br>
+<label><input type="radio" name="q1" value="B"> B. Good Samaritan</label><br>
+<label><input type="radio" name="q1" value="C"> C. Lost Sheep</label><br>
+<label><input type="radio" name="q1" value="D"> D. Feeding of 5000</label>
+</div>
+
+<div class="question">
+<p>2. Who helped the injured man in the parable?</p>
+<label><input type="radio" name="q2" value="A"> A. Priest</label><br>
+<label><input type="radio" name="q2" value="B"> B. Levite</label><br>
+<label><input type="radio" name="q2" value="C"> C. Samaritan</label><br>
+<label><input type="radio" name="q2" value="D"> D. Innkeeper</label>
+</div>
+
+<div class="question">
+<p>3. What command did Jesus give at the end of the story?</p>
+<label><input type="radio" name="q3" value="A"> A. Pray and wait</label><br>
+<label><input type="radio" name="q3" value="B"> B. Follow the law</label><br>
+<label><input type="radio" name="q3" value="C"> C. Go and do likewise</label><br>
+<label><input type="radio" name="q3" value="D"> D. Call authorities</label>
+</div>
+
+<div class="question">
+<p>4. Biblical compassion means:</p>
+<label><input type="radio" name="q4" value="A"> A. Feeling sympathy</label><br>
+<label><input type="radio" name="q4" value="B"> B. Waiting for others</label><br>
+<label><input type="radio" name="q4" value="C"> C. Love in action</label><br>
+<label><input type="radio" name="q4" value="D"> D. Observing only</label>
+</div>
+
+<div class="question">
+<p>5. Every believer is considered:</p>
+<label><input type="radio" name="q5" value="A"> A. Part-time helper</label><br>
+<label><input type="radio" name="q5" value="B"> B. Government responder</label><br>
+<label><input type="radio" name="q5" value="C"> C. First responder of faith</label><br>
+<label><input type="radio" name="q5" value="D"> D. Disaster official</label>
+</div>
+
+<div class="question">
+<p>6. What is the first priority after a disaster?</p>
+<label><input type="radio" name="q6" value="A"> A. Meetings</label><br>
+<label><input type="radio" name="q6" value="B"> B. Survival needs</label><br>
+<label><input type="radio" name="q6" value="C"> C. Reports</label><br>
+<label><input type="radio" name="q6" value="D"> D. Planning buildings</label>
+</div>
+
+<div class="question">
+<p>7. Which is NOT an immediate survival need?</p>
+<label><input type="radio" name="q7" value="A"> A. Food and water</label><br>
+<label><input type="radio" name="q7" value="B"> B. Clothing</label><br>
+<label><input type="radio" name="q7" value="C"> C. Shelter</label><br>
+<label><input type="radio" name="q7" value="D"> D. Internet</label>
+</div>
+
+<div class="question">
+<p>8. Volunteers may assist with:</p>
+<label><input type="radio" name="q8" value="A"> A. Cleanup and transportation</label><br>
+<label><input type="radio" name="q8" value="B"> B. Campaigning</label><br>
+<label><input type="radio" name="q8" value="C"> C. Advertising</label><br>
+<label><input type="radio" name="q8" value="D"> D. Entertainment</label>
+</div>
+
+<div class="question">
+<p>9. Volunteer teams report to:</p>
+<label><input type="radio" name="q9" value="A"> A. Barangay captain</label><br>
+<label><input type="radio" name="q9" value="B"> B. Disaster response coordinator</label><br>
+<label><input type="radio" name="q9" value="C"> C. Mayor</label><br>
+<label><input type="radio" name="q9" value="D"> D. Any church member</label>
+</div>
+
+<div class="question">
+<p>10. Opening church facilities during disasters shows the church is:</p>
+<label><input type="radio" name="q10" value="A"> A. Government office</label><br>
+<label><input type="radio" name="q10" value="B"> B. Private shelter</label><br>
+<label><input type="radio" name="q10" value="C"> C. Refuge for the community</label><br>
+<label><input type="radio" name="q10" value="D"> D. Storage building</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function checkQuiz(){
+
+let answers = {
+q1:"B",
+q2:"C",
+q3:"C",
+q4:"C",
+q5:"C",
+q6:"B",
+q7:"D",
+q8:"A",
+q9:"B",
+q10:"C"
+};
+
+let score = 0;
+
+for(let q in answers){
+
+let selected = document.querySelector('input[name="'+q+'"]:checked');
+
+if(!selected){
+alert("Please answer all questions before submitting.");
+return;
+}
+
+if(selected.value === answers[q]){
+score++;
+}
+
+}
+
+document.getElementById("result").innerHTML =
+"Your Score: " + score + " / 10";
+
+}
+
+</script>
+
+</body>
+</html>

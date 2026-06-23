@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+    }
+
+    .login-card {
+      width: 90%;
+      max-width: 380px;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #2c7a7b;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #24696a;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-card">
+    <h2>Log In</h2>
+    <p class="note">Access your training partner dashboard</p>
+
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <button onclick="login()">Log In</button>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Get registered user (from signup)
+      const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+
+      if (!storedUser) {
+        alert("No account found. Please register first.");
+        return;
+      }
+
+      if (email === storedUser.email && password === storedUser.password) {
+
+        // Save session login
+        localStorage.setItem("user", JSON.stringify(storedUser));
+
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+
+      } else {
+        alert("Invalid email or password");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged Out</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f7f8;
+      font-family: Arial, sans-serif;
+    }
+
+    .logout-card {
+      width: 90%;
+      max-width: 400px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    .logout-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .logout-buttons button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .logout-buttons button:first-child {
+      background: #e0e0e0;
+    }
+
+    .logout-buttons button:last-child {
+      background: #2c7a7b;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .logout-card {
+        padding: 20px;
+      }
+
+      .logout-buttons button {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="logout-card">
+    <h2>You’ve been logged out</h2>
+    <p>Thank you for being part of our training program.</p>
+
+    <div class="logout-buttons">
+      <button onclick="goHome()">Back to Home</button>
+      <button onclick="goLogin()">Log In Again</button>
+    </div>
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    function goLogin() {
+      window.location.href = "logintodashboard.html";
+    }
+  </script>
+
+</body>
+</html>

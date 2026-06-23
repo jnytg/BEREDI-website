@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEREDI DRRM Tier 1 Certification Quiz</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0c0c0c;
+    margin: 0;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+    background: #121212;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 300px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 400;
+}
+
+.timer {
+    text-align: right;
+    font-weight: bold;
+    color: #ff3c3c;
+}
+
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #ffffff;
+    background: #1c1c1c;
+    border-radius: 6px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #cccccc;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: none;
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.pass { color: #00ff88; }
+.fail { color: #ff3c3c; }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+<div class="logo">
+    <img src="beredi-logo.png" alt="BEREDI Logo">
+</div>
+
+<h1>Module 1 – Tier 1 DRRM Certification Assessment</h1>
+
+<div class="timer">Time Remaining: <span id="time">3:00</span></div>
+
+
+<form id="quizForm"></form>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="result" id="result"></div>
+
+<!-- ✅ COMPLETION PROMPT -->
+<div id="completionPrompt" style="display:none; text-align:center; margin-top:20px;">
+    <h2>🎉 Module 1 Completed!</h2>
+    <p>What would you like to do next?</p>
+
+    <button type="button" onclick="goToNextModule()">Proceed to Module 2</button>
+    <button type="button" onclick="goToDashboard()">Save and Go Back to Dashboard</button>
+</div>
+
+</div>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCfh7HdKMNIEdTUqN6fMv2gnyLYoy7wImA",
+  authDomain: "beredi-lms.firebaseapp.com",
+  projectId: "beredi-lms",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// 🔥 SAVE RESULT FUNCTION
+async function saveResult(name, score, percentage) {
+  try {
+    await addDoc(collection(db, "quizResults"), {
+      name: name,
+      score: score,
+      percentage: percentage,
+      module: "Module 1",
+      date: new Date()
+    });
+    console.log("✅ Saved to Firebase");
+  } catch (e) {
+    console.error("❌ Firebase Error:", e);
+  }
+}
+
+const logoPath = "beredi-logo.png";
+
+const questions = [
+{
+q: "Why did Noah build the ark according to Genesis 6:14–21?",
+options: ["Because he was afraid of the flood","Because God commanded him, and he obeyed in faith","Because others told him to","Because he wanted to be famous"],
+answer: 1
+},
+{
+q: "What lesson do we learn from the ant in Proverbs 6:6–8?",
+options: ["Enjoy life and rest more often","Work hard only during disasters","Be diligent and prepare ahead of time","Wait until danger comes before acting"],
+answer: 2
+},
+{
+q: "Which statement best defines a hazard?",
+options: ["A dangerous event that might happen","The weakness that increases harm","The loss caused by an event","The ability to recover quickly"],
+answer: 0
+},
+{
+q: "How does preparedness reflect our faith as followers of Christ?",
+options: ["It shows that we trust God but also act wisely and responsibly","It replaces prayer","We rely only on our strength","Only for leaders"],
+answer: 0
+},
+{
+q: "Which should NOT be included in a Go Bag?",
+options: ["Flashlight","First aid kit","Old newspapers","Bottled water"],
+answer: 2
+},
+{
+q: "What is one key purpose of a family evacuation plan?",
+options: ["Keep info secret","Help members know where to go and communicate","Hide supplies","Cause panic"],
+answer: 1
+},
+{
+q: "How can a local church serve during a disaster?",
+options: ["Close doors","Open facilities and provide care","Wait for government","Focus only on services"],
+answer: 1
+},
+{
+q: "Volunteerism in disaster response reflects what?",
+options: ["Civic duty only","Christ’s compassion in action","Replaces worship","Optional for mature believers"],
+answer: 1
+
+}
+];
+
+// =========================
+// YOUR QUESTIONS RENDERING
+// =========================
+
+// =========================
+// FORM GENERATION
+// =========================
+const form = document.getElementById("quizForm");
+
+questions.forEach((item, index) => {
+    let div = document.createElement("div");
+    div.classList.add("question");
+
+    div.innerHTML = `<strong>${index+1}. ${item.q}</strong><br>`;
+
+    item.options.forEach((opt, i) => {
+        div.innerHTML += `<label>
+            <input type="radio" name="q${index}" value="${i}">
+            ${opt}
+        </label><br>`;
+    });
+
+    form.appendChild(div);
+});
+
+
+// =========================
+// TIMER
+// =========================
+let duration = 3 * 60;
+let timerDisplay = document.getElementById("time");
+
+let timer = setInterval(function () {
+
+    let minutes = Math.floor(duration / 60);
+    let seconds = duration % 60;
+
+    timerDisplay.textContent =
+        `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+    if (--duration < 0) {
+        clearInterval(timer);
+        submitQuiz();
+    }
+
+}, 1000);
+
+
+// =========================
+// QUIZ SUBMIT FUNCTION
+// =========================
+function submitQuiz(){
+
+    clearInterval(timer);
+
+    // ✅ DISPLAY NAME (ADD THIS)
+    const moduleName = "Module 1 Tier 1.1";
+
+    let score = 0;
+
+    const correctAnswers = {};
+
+    questions.forEach((item, index) => {
+        correctAnswers[`q${index}`] = String(item.answer);
+    });
+
+    for (let q in correctAnswers) {
+
+        let selected = document.querySelector(`input[name="${q}"]:checked`);
+
+        if (!selected) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        if (selected.value === correctAnswers[q]) {
+            score++;
+        }
+    }
+
+    const total = questions.length;
+    const passingScore = Math.ceil(total * 0.75);
+    const isPass = score >= passingScore;
+
+    // show result
+    document.getElementById("result").innerHTML =
+        `Your Result: ${isPass ? "PASS" : "FAIL"} (${score}/${total})`;
+
+    // =========================
+    // ✅ SAVE QUIZ RECORD (FIXED POSITION)
+    // =========================
+    let quizRecords = JSON.parse(localStorage.getItem("quizRecords")) || [];
+
+    let currentModule = localStorage.getItem("currentModule") || "module1tier1.2page1";
+
+    let record = {
+        moduleId: currentModule,
+        moduleName: moduleName, // 👈 readable name
+        score: score,
+        total: total,
+        status: isPass ? "PASS" : "FAIL",
+        date: new Date().toLocaleString()
+    };
+
+    quizRecords.push(record);
+    localStorage.setItem("quizRecords", JSON.stringify(quizRecords));
+
+    // =========================
+    // IF PASSED → SAVE + UNLOCK
+    // =========================
+    if (isPass) {
+
+        let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+        moduleData[currentModule] = "completed";
+
+        // ✅ UNLOCK NEXT MODULE
+        moduleData["module1_t1_2"] = "unlocked";
+
+        // ✅ SET NEXT MODULE
+        localStorage.setItem("currentModule", "module1tier1.2page1");
+
+        localStorage.setItem("moduleData", JSON.stringify(moduleData));
+
+        // progress
+        let progress = parseInt(localStorage.getItem("progress")) || 0;
+        progress++;
+        localStorage.setItem("progress", progress);
+
+        // SHOW PROMPT
+        document.getElementById("completionPrompt").style.display = "block";
+    }
+}
+
+
+// =========================
+// BUTTON NAVIGATION
+// =========================
+function goToNextModule(){
+    window.location.href = "module1tier1.2.html"; // update if needed
+}
+
+function goToDashboard(){
+    window.location.href = "dashboard.html";
+}
+
+window.submitQuiz = submitQuiz;
+window.goToNextModule = goToNextModule;
+window.goToDashboard = goToDashboard;
+
+
+// =========================
+// INIT SAFETY
+// =========================
+window.addEventListener("DOMContentLoaded", function () {
+    if (!localStorage.getItem("currentModule")) {
+        localStorage.setItem("currentModule", "module1_t1_1");
+    }
+});
+
+</script>

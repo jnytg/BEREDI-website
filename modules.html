@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modules</title>
+
+<style>
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+.module {
+  padding: 15px;
+  margin: 10px 0;
+  background: #2c7a7b;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.locked {
+  background: gray;
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.unlocked {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.badge {
+  display: none;
+  background: #38a169;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.header {
+  background: #225e5f;
+  font-weight: bold;
+  cursor: default;
+}
+
+.tier-container {
+  margin-left: 20px;
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
+}
+
+.tier-container .module {
+  background: #4a9c9c;
+  font-size: 14px;
+  padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Training Modules</h2>
+
+<!-- MODULES -->
+
+<div class="module header">Module 1 -  Disaster Preparedness</div>
+
+<div class="tier-container">
+
+  <div id="module1" class="module locked" onclick="openModule(1)">
+    <span>Module 1 - Tier 1.1 - Disaster Preparedness</span>
+    <span class="badge" id="badge1">✔</span>
+  </div>
+
+  <div id="module2" class="module locked" onclick="openModule(2)">
+    <span>Module 1 - Tier 1.2 - Disaster Preparedness and Response</span>
+    <span class="badge" id="badge2">✔</span>
+  </div>
+
+</div>
+
+<div class="module header">Module 2</div>
+
+<div class="tier-container">
+
+  <div id="module3" class="module locked" onclick="openModule(3)">
+    <span>Module 2 tier 1.1- Disaster Response (The Good Samaritan)</span>
+    <span class="badge" id="badge3">✔</span>
+  </div>
+
+  <div id="module4" class="module locked" onclick="openModule(4)">
+    <span>Module 2 tier 1.2 - Practical Immediate Response</span>
+    <span class="badge" id="badge4">✔</span>
+  </div>
+
+  <div id="module5" class="module locked" onclick="openModule(5)">
+    <span>Module 2 tier 1.3 - Emotional and Spiritual Care</span>
+    <span class="badge" id="badge5">✔</span>
+  </div>
+
+  <div id="module6" class="module locked" onclick="openModule(6)">
+    <span>Module 2 tier 1.4 - Basic Lifesaving Skills</span>
+    <span class="badge" id="badge6">✔</span>
+  </div>
+
+</div>
+
+<div class="module header">Module 2 Tier 2</div>
+
+<div class="tier-container">
+
+  <div id="module7" class="module locked" onclick="openModule(7)">
+    <span>Tier 2.1-Church-Based Disaster Preparedness & Response</span> 
+    <span class="badge" id="badge7">✔</span>
+  </div>
+
+  <div id="module8" class="module locked" onclick="openModule(8)">
+    <span>Tier 2.2-ContingencyPlanning (Before Disaster)</span>
+    <span class="badge" id="badge8">✔</span>
+  </div>
+
+  <div id="module9" class="module locked" onclick="openModule(9)">
+    <span>Tier 2.3-Specialized-Volunteer Teams</span>
+    <span class="badge" id="badge9">✔</span>
+  </div>
+
+  <div id="module10" class="module locked" onclick="openModule(10)">
+    <span>Tier 2.4-Capacity Building and Drills</span>
+    <span class="badge" id="badge10">✔</span>
+  </div>
+
+  <div id="module11" class="module locked" onclick="openModule(11)">
+    <span>Tier 2.5-Spiritual Leadership in Disaster Context</span>
+    <span class="badge" id="badge11">✔</span>
+  </div>
+
+</div>
+
+<script>
+let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+/* =========================
+   UNLOCK LOGIC (FIXED FLOW)
+========================= */
+
+// First module always open
+unlock(1);
+
+// Sequential unlocking
+if (moduleData["module1"] === "completed") unlock(2);
+
+if (moduleData["module2"] === "completed") unlock(3);
+if (moduleData["module3"] === "completed") unlock(4);
+if (moduleData["module4"] === "completed") unlock(5);
+if (moduleData["module5"] === "completed") unlock(6);
+
+// MODULE 2 TIER 2 FLOW
+if (moduleData["module6"] === "completed") unlock(7); // Tier 2.1
+
+if (moduleData["module7"] === "completed") unlock(8); // Tier 2.2
+if (moduleData["module8"] === "completed") unlock(9); // Tier 2.3
+if (moduleData["module9"] === "completed") unlock(10); // Tier 2.4
+if (moduleData["module10"] === "completed") unlock(11); // Tier 2.5
+
+function unlock(num) {
+  const el = document.getElementById("module" + num);
+  if (el) {
+    el.classList.remove("locked");
+    el.classList.add("unlocked");
+  }
+}
+
+/* =========================
+   BADGES
+========================= */
+for (let i = 1; i <= 11; i++) {
+  const badge = document.getElementById("badge" + i);
+
+  if (badge) {
+    if (moduleData["module" + i] === "completed") {
+      badge.style.display = "inline-block";
+    }
+  }
+}
+
+/* =========================
+   OPEN MODULE
+========================= */
+function openModule(moduleNumber) {
+
+  const el = document.getElementById("module" + moduleNumber);
+
+  if (el.classList.contains("locked")) {
+    alert("⚠️ Finish previous module first.");
+    return;
+  }
+
+  localStorage.setItem("currentModule", "module" + moduleNumber);
+
+  const modulePages = {
+    1: "module1tier1.1page1.html",
+    2: "module1tier1.2page1.html",
+    3: "module2tier1.1.generaltraining.html",
+    4: "module2tier1.2page1.html",
+    5: "module2tier1.3page1.html",
+    6: "module2tier1.4page1.html",
+    7: "module2tier2.1page1.html",
+    8: "module2tier2.2page1.html",
+    9: "module2tier2.3page1.html",
+    10: "module2tier2.4page1.html",
+    11: "module2tier2.5page1.html"
+  };
+
+  window.location.href = modulePages[moduleNumber];
+}
+
+</script>
+
+</body>
+</html>

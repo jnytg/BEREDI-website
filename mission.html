@@ -1,0 +1,201 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mission & Vision | BEREDI</title>
+
+
+  <link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<rect width='100' height='100' rx='20' fill='%2322c55e'/>
+<text x='50' y='62' font-size='48' text-anchor='middle' fill='white' font-family='Arial'>⛪</text>
+</svg>">
+ 
+ 
+  <link href="https://fonts.cdnfonts.com/css/braven" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6f3f3;
+    }
+
+   
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #b5cce4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Braven', sans-serif;
+      font-size: 2.2rem;
+      color: #1e3a8a;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background-color: #1e3a8a;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #476869;
+    }
+
+   
+    @media (max-width: 1024px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #b5cce4;
+        width: 220px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 1050;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+  <h1 class="logo">BEREDI</h1>
+
+  
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="mission.html">Mission & Vision</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="programs.html">Programs</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<section class="bg-[#b5cce4] py-16 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-[#1e3a8a]">
+      Mission & Vision
+    </h2>
+    <p class="text-base md:text-lg text-[#0f172a]">
+      Guided by faith, compassion, and preparedness in service to communities.
+    </p>
+  </div>
+</section>
+
+<section class="py-16 px-4">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]">
+        Our Mission
+      </h3>
+      <p class="leading-relaxed text-[#0f172a]">
+        To equip churches and communities to become frontline responders in times of disaster
+        by providing training, tools, and a biblical foundation for compassion-led action.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-[#b5cce4]">
+      <h3 class="text-xl md:text-2xl font-bold mb-4 text-[#1e3a8a]">
+        Our Vision
+      </h3>
+      <p class="leading-relaxed text-[#0f172a]">
+        A global church network united and prepared for disaster response — bringing hope,
+        healing, and restoration to affected communities.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-16 px-4 bg-[#b5cce4]">
+  <div class="max-w-4xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-xl border border-[#b5cce4]">
+    <h3 class="text-xl md:text-2xl font-bold mb-6 text-[#1e3a8a] text-center">
+      What We Believe
+    </h3>
+    <ul class="space-y-3 text-[#0f172a]">
+      <li>• Faith as the foundation for action</li>
+      <li>• Empowerment of local churches</li>
+      <li>• Compassionate and sustainable responses</li>
+      <li>• Global collaboration for preparedness</li>
+    </ul>
+  </div>
+</section>
+
+
+<footer class="bg-[#0f0f0f] text-center text-sm text-gray-300 py-6">
+  <p>&copy; 2025 BEREDI. All rights reserved.</p>
+</footer>
+
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

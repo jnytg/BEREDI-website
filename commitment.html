@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 5 Commitment Checklist</title>
+
+  
+  <link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<rect width='100' height='100' rx='20' fill='%2322c55e'/>
+<text x='50' y='62' font-size='48' text-anchor='middle' fill='white' font-family='Arial'>⛪</text>
+</svg>">
+
+
+  <style>
+    :root {
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --soft: #f9fafb;
+      --accent: #111827;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: var(--soft);
+      line-height: 1.45;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 16px;
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    header {
+      padding: 22px 22px 12px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    main {
+      padding: 16px 22px 22px;
+    }
+
+    .section {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 14px 10px;
+      margin: 14px 0;
+      background: #fff;
+    }
+
+    .section h2 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .hint {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .checklist input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+
+    .checklist label {
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 18px 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      resize: vertical;
+      background: #122969;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+   /* 🔥 FINAL SUBMIT BUTTON STYLE */
+button.card {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #2855a7, #345238);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(76, 217, 100, 0.6);
+}
+
+button.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+button.card:active {
+  transform: scale(0.97);
+}
+
+/* ✨ MATCH DASHBOARD CARD STYLE */
+button.card .icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+button.card .title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+button.card .value {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+    @media (max-width: 760px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+
+      header,
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #0b417e;
+      }
+
+    
+      .container {
+        margin: 0;
+        padding: 0;
+        max-width: none;
+      }
+
+
+      .card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+
+      button,
+      .actions,
+      .small {
+        display: none !important;
+      }
+
+
+      
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="container">
+    <div class="card" role="document" aria-label="Lesson 5 Commitment Checklist">
+
+      <header>
+        <h1>Lesson 5 Commitment Checklist</h1>
+        <p class="subtitle">
+          <strong>Volunteerism &amp; Commitment</strong><br />
+          “Serving in crisis is worship in action.”
+        </p>
+
+        <div class="meta" aria-label="Participant information">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" />
+          </div>
+          <div class="field">
+            <label for="church">Church  Name / Ministry</label>
+            <input id="church" name="church" type="text" placeholder="Enter your church/ministry" />
+          </div>
+         
+      </header>
+
+      <main>
+      
+        <section class="section" aria-label="A. My Heart and Calling">
+          <h2>A. My Heart &amp; Calling</h2>
+          <ul class="checklist">
+            <li>
+              <input id="a1" type="checkbox" />
+              <label for="a1">I understand that disaster response is an expression of worship and obedience to Christ.</label>
+            </li>
+            <li>
+              <input id="a2" type="checkbox" />
+              <label for="a2">I believe every believer has a role in serving during times of crisis.</label>
+            </li>
+            <li>
+              <input id="a3" type="checkbox" />
+              <label for="a3">I am willing to serve with humility, faith, and love when needs arise.</label>
+            </li>
+          </ul>
+        </section>
+
+       
+        <section class="section" aria-label="B. Be Prepared">
+          <h2>B. BE PREPARED</h2>
+          <p class="hint">Readiness before disaster strikes</p>
+          <ul class="checklist">
+            <li>
+              <input id="b1" type="checkbox" />
+              <label for="b1">I have basic awareness of common hazards in my community.</label>
+            </li>
+            <li>
+              <input id="b2" type="checkbox" />
+              <label for="b2">I have started or completed a simple household emergency plan.</label>
+            </li>
+            <li>
+              <input id="b3" type="checkbox" />
+              <label for="b3">I am taking steps to prepare basic emergency supplies for my family.</label>
+            </li>
+            <li>
+              <input id="b4" type="checkbox" />
+              <label for="b4">I commit to personal preparedness so I can serve others without becoming a burden.</label>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="C. Be Available">
+          <h2>C. BE AVAILABLE</h2>
+          <p class="hint">Willingness to respond</p>
+          <ul class="checklist">
+            <li>
+              <input id="c1" type="checkbox" />
+              <label for="c1">I am willing to offer my time when my church activates a response.</label>
+            </li>
+            <li>
+              <input id="c2" type="checkbox" />
+              <label for="c2">I have identified at least one skill I can contribute (e.g., logistics, cooking, assessment, prayer, admin, relief distribution, etc.).</label>
+            </li>
+            <li>
+              <input id="c3" type="checkbox" />
+              <label for="c3">I understand the importance of presence—showing up when called, even in small ways.</label>
+            </li>
+            <li>
+              <input id="c4" type="checkbox" />
+              <label for="c4">I will communicate honestly about my availability during emergencies.</label>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="D. Be Teachable">
+          <h2>D. BE TEACHABLE</h2>
+          <p class="hint">Growth and accountability</p>
+          <ul class="checklist">
+            <li>
+              <input id="d1" type="checkbox" />
+              <label for="d1">I commit to attending future trainings, orientations, or drills when possible.</label>
+            </li>
+            <li>
+              <input id="d2" type="checkbox" />
+              <label for="d2">I am open to learning from leaders, teammates, and past experiences.</label>
+            </li>
+            <li>
+              <input id="d3" type="checkbox" />
+              <label for="d3">I accept feedback and correction for the sake of safety, order, and effectiveness.</label>
+            </li>
+            <li>
+              <input id="d4" type="checkbox" />
+              <label for="d4">I will participate in debriefs to help improve future responses.</label>
+            </li>
+          </ul>
+        </section>
+        
+        <section class="section" aria-label="E. Be Compassionate">
+          <h2>E. BE COMPASSIONATE</h2>
+          <p class="hint">Serving with Christlike character</p>
+          <ul class="checklist">
+            <li>
+              <input id="e1" type="checkbox" />
+              <label for="e1">I commit to serving affected families with dignity and respect.</label>
+            </li>
+            <li>
+              <input id="e2" type="checkbox" />
+              <label for="e2">I will listen before acting and avoid judgment or favoritism.</label>
+            </li>
+            <li>
+              <input id="e3" type="checkbox" />
+              <label for="e3">I will serve with humility, remembering that people are not projects.</label>
+            </li>
+            <li>
+              <input id="e4" type="checkbox" />
+              <label for="e4">I will represent Christ and His Church through my words, actions, and attitude.</label>
+            </li>
+          </ul>
+        </section>
+
+       
+      
+       <!-- ✅ SUBMIT BUTTON (CARD STYLE) -->
+
+<button type="button" class="card" onclick="submitForm()">
+  <div class="icon">🏆</div>
+  <div class="title">Submit Commitment</div>
+  <div class="value">Click to Complete & Return to Dashboard</div>
+  
+</button>
+<!-- ✅ SCRIPT (ONLY ONE CLEAN SCRIPT) -->
+<script>
+function showMessage(msg) {
+  const box = document.createElement("div");
+
+  box.innerText = msg;
+  box.style.position = "fixed";
+  box.style.bottom = "20px";
+  box.style.left = "50%";
+  box.style.transform = "translateX(-50%)";
+  box.style.background = "#0a5b78";
+  box.style.color = "white";
+  box.style.padding = "12px 20px";
+  box.style.borderRadius = "8px";
+  box.style.zIndex = "9999";
+  box.style.fontWeight = "bold";
+
+  document.body.appendChild(box);
+
+  setTimeout(() => box.remove(), 2500);
+}
+
+function submitForm(){
+
+  const btn = document.querySelector("button.card");
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwEGz8f26cVqw_dPegeiTmil20bNWiXwQ7keLVPta1KTci84Gui3_0n3DMqox96FTql/exec";
+
+  const nameEl = document.getElementById("name");
+  const churchEl = document.getElementById("church");
+  const signatureEl = document.getElementById("signature");
+
+  // ✅ VALIDATION
+  if (!nameEl.value.trim() || !churchEl.value.trim()) {
+    alert("Please enter your name and church.");
+    btn.disabled = false;
+    btn.innerText = "Submit Commitment";
+    return;
+  }
+
+  const formData = new FormData();
+
+  formData.append("formType", "commitment");
+  formData.append("name", nameEl.value.trim());
+  formData.append("church", churchEl.value.trim());
+  formData.append("signature", signatureEl ? signatureEl.value : "");
+
+  // ✅ CHECKBOXES
+  const checkboxes = [
+    'a1','a2','a3',
+    'b1','b2','b3','b4',
+    'c1','c2','c3','c4',
+    'd1','d2','d3','d4',
+    'e1','e2','e3','e4'
+  ];
+
+  checkboxes.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      formData.append(id, el.checked);
+    }
+  });
+
+  // ✅ SEND
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(() => {
+    localStorage.setItem("certificateUnlocked", "true");
+
+    showMessage("🎉 Commitment Submitted! Redirecting to dashboard...");
+
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 2000);
+
+  })
+  .catch(error => {
+    alert("Submission failed. Please try again.");
+    console.error(error);
+
+    btn.disabled = false;
+    btn.innerText = "Submit Commitment";
+  });
+}
+</script>
+</body>
+</html>

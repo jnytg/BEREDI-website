@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register | BEREDI</title>
+
+<style>
+:root {
+  --brand:#1e3a8a;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: system-ui, Arial, sans-serif;
+  background-image: url("https://mail.google.com/mail/u/0?ui=2&ik=2787aa3ad7&attid=0.1&permmsgid=msg-a:r7323204659345036136&th=19b5eb195bbd8fea&view=att&disp=safe&realattid=19b5eb181421a8e9c711&zw");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* DARK OVERLAY EFFECT */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70);
+  z-index: -1;
+}
+
+.wrap {
+  max-width: 800px; 
+  margin: 120px auto;
+  padding: 36px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 30px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.25);
+}
+
+.form-subtext {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: var(--brand);
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  width: 95%;
+  padding: 12px;
+  margin: 6px 0 16px;
+  border-radius: 12px;
+  border: 2px solid #cbd5e1;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #9ea2a5, #2c5c77);
+  color: #fff;
+  font-weight: 600; 
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <h2>Registration</h2>
+
+  <p class="form-subtext">
+  Register to access your training modules and personal dashboard.
+</p>
+
+  <form id="registrationForm">
+    <label>Full Name</label>
+    <input type="text" id="fullName" required>
+
+    <label>Address</label>
+    <input type="text" id="address" required>
+
+    <label>Email</label>
+    <input type="email" id="email" required>
+
+    <label>Mobile</label>
+    <input type="text" id="mobile" required>
+
+    <!-- 🟢 ADDED PASSWORD FIELD -->
+    <label>Password</label>
+    <input type="password" id="password" required>
+    
+    <p style="font-size:12px;color:#666;">
+Password must be at least 6 characters and include letters and numbers.
+</p>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p id="regMessage" style="margin-top:10px;font-weight:bold;"></p>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwEGz8f26cVqw_dPegeiTmil20bNWiXwQ7keLVPta1KTci84Gui3_0n3DMqox96FTql/exec";
+
+document.getElementById("registrationForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const password = document.getElementById("password").value;
+
+// Password validation rules
+const passwordValid =
+  password.length >= 6 &&
+  /[A-Za-z]/.test(password) &&
+  /[0-9]/.test(password);
+
+if (!passwordValid) {
+    document.getElementById("regMessage").textContent =
+      "Password must be at least 6 characters and include letters and numbers.";
+    document.getElementById("regMessage").style.color = "red";
+    return;
+}
+    const userData = {
+
+      
+        name: document.getElementById("fullName").value,
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value,
+        mobile: document.getElementById("mobile").value,
+
+        
+        
+        // 🟢 ADDED PASSWORD
+        password: document.getElementById("password").value
+    };
+
+    // ✅ Save full user (for login check later)
+    localStorage.setItem("registeredUser", JSON.stringify(userData));
+
+    // ✅ Auto login session (without password for security flow)
+    localStorage.setItem("user", JSON.stringify({
+        name: userData.name,
+        email: userData.email,
+        mobile: userData.mobile,
+        address: userData.address
+    }));
+
+    // Optional: send to Google Sheets
+    if (scriptURL !== "") {
+        fetch(scriptURL, {
+            method: "POST",
+            body: new URLSearchParams(userData)
+        });
+    }
+
+    document.getElementById("regMessage").textContent = "Registration successful! Redirecting...";
+    document.getElementById("regMessage").style.color = "green";
+
+    setTimeout(() => {
+        window.location.href = "dashboard.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

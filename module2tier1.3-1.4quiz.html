@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BEREDi Quiz</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f7fafc;
+      color:#1a202c;
+    }
+
+    header{
+      background:#0a5b78;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+
+    main{
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .question{
+      background:white;
+      padding:15px;
+      margin-bottom:12px;
+      border-radius:10px;
+      border:1px solid #ddd;
+    }
+
+    .btn{
+      background:#0a5b78;
+      color:white;
+      border:none;
+      padding:12px 18px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:bold;
+      margin-top:10px;
+    }
+
+    .btn.secondary{
+      background:#e2e8f0;
+      color:#0a5b78;
+    }
+
+    /* FLOATING RESULT CARD */
+    #resultCard{
+      display:none;
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:300px;
+      background:white;
+      padding:16px;
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      z-index:9999;
+    }
+
+    @media(max-width:600px){
+      #resultCard{
+        width:90%;
+        right:5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Module 2 – Disaster Response Training Quiz TIER 1.3 - 1.4</h2>
+</header>
+
+  <main role="main">
+   
+      <h2>Quiz</h2>
+
+<div class="question">
+<p>1. During disasters, survivors often experience emotional trauma, fear, and spiritual exhaustion in addition to physical loss.</p>
+<label><input type="radio" name="q1" value="A"> True</label><br>
+<label><input type="radio" name="q1" value="B"> False</label>
+</div>
+
+<div class="question">
+<p>2. What important role does the Church provide aside from relief goods and shelter?</p>
+<label><input type="radio" name="q2" value="A"> Business assistance</label><br>
+<label><input type="radio" name="q2" value="B"> Emotional comfort and spiritual healing</label><br>
+<label><input type="radio" name="q2" value="C"> Political support</label><br>
+<label><input type="radio" name="q2" value="D"> Media reporting</label>
+</div>
+
+<div class="question">
+<p>3. In crisis situations, what do survivors often need most when sharing their pain?</p>
+<label><input type="radio" name="q3" value="A"> Detailed explanations</label><br>
+<label><input type="radio" name="q3" value="B"> A compassionate listener</label><br>
+<label><input type="radio" name="q3" value="C"> Financial advice</label><br>
+<label><input type="radio" name="q3" value="D"> Government instructions</label>
+</div>
+
+<div class="question">
+<p>4. According to the training, evangelism in disaster response should be done:</p>
+<label><input type="radio" name="q4" value="A"> Aggressively and immediately</label><br>
+<label><input type="radio" name="q4" value="B"> Through compassion and relationship</label><br>
+<label><input type="radio" name="q4" value="C"> Through debates</label><br>
+<label><input type="radio" name="q4" value="D"> Through public confrontation</label>
+</div>
+
+<div class="question">
+<p>5. Which Bible verse reminds believers that light still shines in darkness?</p>
+<label><input type="radio" name="q5" value="A"> Romans 8:28</label><br>
+<label><input type="radio" name="q5" value="B"> John 1:5</label><br>
+<label><input type="radio" name="q5" value="C"> Matthew 5:16</label><br>
+<label><input type="radio" name="q5" value="D"> Psalm 23:1</label>
+</div>
+
+<div class="question">
+<p>6. Basic lifesaving skills taught to church volunteers include first aid, bandaging, choking response, and CPR.</p>
+<label><input type="radio" name="q6" value="A"> True</label><br>
+<label><input type="radio" name="q6" value="B"> False</label>
+</div>
+
+<div class="question">
+<p>7. What lifesaving technique is used to help a choking person?</p>
+<label><input type="radio" name="q7" value="A"> CPR</label><br>
+<label><input type="radio" name="q7" value="B"> Heimlich maneuver</label><br>
+<label><input type="radio" name="q7" value="C"> Chest massage</label><br>
+<label><input type="radio" name="q7" value="D"> Oxygen therapy</label>
+</div>
+
+<div class="question">
+<p>8. During floods, what is an important safety action?</p>
+<label><input type="radio" name="q8" value="A"> Walk through strong currents</label><br>
+<label><input type="radio" name="q8" value="B"> Turn off electricity when flooding begins</label><br>
+<label><input type="radio" name="q8" value="C"> Drive through flooded roads</label><br>
+<label><input type="radio" name="q8" value="D"> Wait for instructions</label>
+</div>
+
+<div class="question">
+<p>9. What is the purpose of emergency drills conducted by churches and families?</p>
+<label><input type="radio" name="q9" value="A"> Entertainment</label><br>
+<label><input type="radio" name="q9" value="B"> Government compliance</label><br>
+<label><input type="radio" name="q9" value="C"> To turn knowledge into automatic response</label><br>
+<label><input type="radio" name="q9" value="D"> Test buildings</label>
+</div>
+
+<div class="question">
+<p>10. The training promotes the mindset that:</p>
+<label><input type="radio" name="q10" value="A"> Government agencies are the only responders</label><br>
+<label><input type="radio" name="q10" value="B"> Only pastors should help</label><br>
+<label><input type="radio" name="q10" value="C"> The Church is a first responder in Christ’s love</label><br>
+<label><input type="radio" name="q10" value="D"> Professionals should handle disasters</label>
+</div>
+
+</div>
+
+
+<form id="quizForm" action="https://script.google.com/macros/s/AKfycbwEGz8f26cVqw_dPegeiTmil20bNWiXwQ7keLVPta1KTci84Gui3_0n3DMqox96FTql/exec" method="POST" target="hidden_iframe">
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+<input type="hidden" name="quizNumber" value="2"> <!-- for Quiz 2 -->
+<input type="hidden" name="formType" value="quiz">
+<input type="hidden" name="email" id="email" value="">
+<input type="hidden" name="score" id="score">
+
+  <!-- INSERT YOUR FIELDSETS HERE -->
+ <div class="actions">
+  <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+
+</main>
+
+
+<script>
+document.getElementById("email").value = localStorage.getItem("userEmail") || "";
+
+const correctAnswers = {
+  q1: "A",
+  q2: "B",
+  q3: "B",
+  q4: "B",
+  q5: "B",
+  q6: "A",
+  q7: "B",
+  q8: "B",
+  q9: "C",
+  q10: "C"
+};
+
+// 🔥 SUBMIT QUIZ
+function submitQuiz() {
+  let score = 0;
+
+  // CHECK ANSWERS
+  for (let q in correctAnswers) {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+    if (!selected) {
+      alert("Please answer all questions.");
+      return;
+    }
+
+    if (selected.value === correctAnswers[q]) {
+      score++;
+    }
+  }
+
+  const total = Object.keys(correctAnswers).length;
+  const passingScore = Math.ceil(total * 0.75);
+  const isPass = score >= passingScore;
+  const result = isPass ? "PASS" : "FAIL";
+
+  // SAVE RESULT
+  localStorage.setItem("lastScore", score);
+  localStorage.setItem("quizResult", result);
+
+  // SHOW RESULT CARD
+  showResultCard(score, total, result);
+
+  // =========================
+  // ✅ SAVE MODULE ONLY IF PASS
+  // =========================
+  if (isPass) {
+    let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+    const currentModule = localStorage.getItem("currentModule");
+
+    if (!currentModule) {
+      alert("Module not set properly. Please go back and reopen the module.");
+      return;
+    }
+
+    // MARK MODULE COMPLETE
+    moduleData[currentModule] = "completed";
+    localStorage.setItem("moduleData", JSON.stringify(moduleData));
+
+    // OPTIONAL PROGRESS COUNTER
+    let progress = parseInt(localStorage.getItem("progress")) || 0;
+    progress++;
+    localStorage.setItem("progress", progress);
+
+    // AUTO REDIRECT TO MODULES
+    setTimeout(() => {
+      window.location.href = "modules.html";
+    }, 1500);
+  }
+}
+
+/* =========================
+   RESULT CARD DISPLAY
+========================= */
+function showResultCard(score, total, result) {
+  const card = document.getElementById("resultCard");
+  const text = document.getElementById("resultText");
+
+  text.innerHTML = `Score: ${score}/${total} <br> Result: ${result}`;
+  card.style.display = "block";
+}
+
+/* =========================
+   MANUAL BACK BUTTON
+========================= */
+function goToModules() {
+  window.location.href = "modules.html";
+}
+</script>
+
+</body>
+</html>

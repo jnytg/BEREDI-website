@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download Resources | BEREDI</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#b5cce4] text-[#000000]">
+
+<!-- NAVBAR -->
+<header class="bg-[#b5cce4] shadow-md px-4 py-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+    <h1 class="text-3xl font-bold text-[#1e3a8a]">BEREDI</h1>
+
+    <!-- Mobile Menu Toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer">
+    <label for="menu-toggle" class="md:hidden text-2xl cursor-pointer text-[#1e3a8a]">
+      ☰
+    </label>
+
+    <!-- NAV LINKS -->
+    <ul class="peer-checked:flex hidden md:flex
+               flex-col md:flex-row
+               absolute md:static
+               top-20 left-0 w-full md:w-auto
+               bg-[#b5cce4] md:bg-transparent
+               px-6 py-6 md:p-0
+               space-y-4 md:space-y-0 md:space-x-6
+               text-[#1e3a8a] text-sm">
+
+      <li><a href="../index.html" class="hover:text-[#476869]">Home</a></li>
+      <li><a href="about.html" class="hover:text-[#476869]">About</a></li>
+      <li><a href="mission.html" class="hover:text-[#476869]">Mission & Vision</a></li>
+      <li><a href="training.html" class="hover:text-[#476869]">Training</a></li>
+      <li><a href="contact.html" class="hover:text-[#476869]">Contact</a></li>
+      <li><a href="programs.html" class="hover:text-[#476869]">Programs</a></li>
+      <li><a href="trainingmaterials.html" class="font-semibold text-[#476869]">Training Materials</a></li>
+      <li><a href="modules.html" class="hover:text-[#476869]">Modules</a></li>
+    </ul>
+
+  </div>
+</header>
+
+<!-- PAGE CONTENT -->
+<section class="max-w-5xl mx-auto px-4 py-12">
+
+  <h1 class="text-3xl md:text-4xl font-bold text-center mb-10 text-[#1e3a8a]">
+    Download Training Materials
+  </h1>
+
+  <div class="space-y-6">
+
+    <!-- Volunteer Form -->
+    <div class="bg-[#010816] p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-semibold text-[#b1d4df]">
+        Volunteer Application Form
+      </h3>
+      <p class="text-white mt-2 mb-4">
+        Interested in helping during disasters? Download and fill out our volunteer form.
+      </p>
+      <a href="../files/volunteer-form.pdf" download
+         class="inline-block bg-[#135c7e] hover:bg-[#021229] text-[#b1d4df] px-4 py-2 rounded-md font-bold">
+        ⬇ Download
+      </a>
+    </div>
+
+    <!-- Training Kit -->
+    <div class="bg-[#010816] p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-semibold text-[#b1d4df]">
+        BEREDI Training Kit
+      </h3>
+      <p class="text-white mt-2 mb-4">
+        Complete training manual for Levels 1–4.
+      </p>
+      <a href="../files/training-kit.pdf" download
+         class="inline-block bg-[#135c7e] hover:bg-[#021229] text-[#b1d4df] px-4 py-2 rounded-md font-bold">
+        ⬇ Download
+      </a>
+    </div>
+
+    <!-- Disaster Response Guide -->
+    <div class="bg-[#010816] p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-semibold text-[#b1d4df]">
+        Disaster Response Guide
+      </h3>
+      <p class="text-white mt-2 mb-4">
+        Official handbook for church-based responders.
+      </p>
+      <a href="../files/response-guide.pdf" download
+         class="inline-block bg-[#135c7e] hover:bg-[#021229] text-[#b1d4df] px-4 py-2 rounded-md font-bold">
+        ⬇ Download
+      </a>
+    </div>
+
+    <!-- Biblical Preparedness Manual -->
+    <div class="bg-[#010816] p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-semibold text-[#b1d4df]">
+        Biblical Preparedness Manual
+      </h3>
+      <p class="text-white mt-2 mb-4">
+        A faith-based guide to spiritual and practical disaster preparedness.
+      </p>
+      <a href="../files/biblical-preparedness-manual.pdf" download
+         class="inline-block bg-[#135c7e] hover:bg-[#021229] text-[#b1d4df] px-4 py-2 rounded-md font-bold">
+        📖 Download Manual
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0f0f0f] text-center text-sm text-gray-300 py-6">
+  <p>
+    &copy; 2025 BEREDI | Church-Based Disaster Risk Reduction |
+    <a href="policy.html" class="underline hover:text-white">Privacy Policy</a> |
+    <a href="terms.html" class="underline hover:text-white">Terms & Conditions</a>
+  </p>
+</footer>
+
+</body>
+</html>

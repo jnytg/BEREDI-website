@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certificate</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .certificate {
+      background: white;
+      padding: 40px;
+      border: 10px solid #00796b;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #00796b;
+    }
+
+    .module {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .date {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="certificate">
+  <h1>Certificate of Completion</h1>
+
+  <p>This is proudly awarded to</p>
+
+  <div class="name" id="certName">---</div>
+
+  <p>For successfully completing</p>
+
+  <div class="module" id="certModule">---</div>
+
+  <div class="date" id="certDate"></div>
+
+  <button class="btn" onclick="printCertificate()">Download / Print</button>
+</div>
+
+<script>
+
+/* =========================
+   LOAD CERTIFICATE DATA
+========================= */
+function loadCertificate(){
+
+  const name = localStorage.getItem("userName") || "Participant";
+  const moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+  // FIND COMPLETED MODULES
+  let completedModules = [];
+
+  for (let key in moduleData) {
+    if (moduleData[key] === "completed") {
+      completedModules.push(key);
+    }
+  }
+
+  let moduleText = "";
+
+  if (completedModules.length === 0) {
+    moduleText = "No module completed";
+  } 
+  else if (completedModules.length === 1) {
+    moduleText = completedModules[0];
+  } 
+  else {
+    moduleText = "All Modules Completed";
+  }
+
+  // SET VALUES
+  document.getElementById("certName").innerText = name;
+  document.getElementById("certModule").innerText = moduleText;
+
+  // DATE
+  const today = new Date().toLocaleDateString();
+  document.getElementById("certDate").innerText = "Date: " + today;
+}
+
+/* =========================
+   PRINT
+========================= */
+function printCertificate(){
+  window.print();
+}
+
+// LOAD ON OPEN
+loadCertificate();
+
+</script>
+
+</body>
+</html>

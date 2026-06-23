@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEREDI DRRM Certification Quiz</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f6fa;
+    margin: 0;
+    padding: 20px;
+}
+
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    border-top: 8px solid #0d2c54; /* BEREDI Blue */
+}
+
+h1 {
+    color: #0d2c54;
+    text-align: center;
+}
+
+.timer {
+    text-align: right;
+    font-weight: bold;
+    color: #b11226; /* Disaster Red */
+}
+
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #0d2c54;
+    background: #f9fbfd;
+    border-radius: 6px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #0d2c54;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #091d36;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.pass { color: green; }
+.fail { color: #b11226; }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+<div class="logo">
+    <img src="beredi-logo.png" alt="BEREDI Logo">
+</div>
+
+<h1>Module 1 – Tier 1 DRRM Certification Assessment</h1>
+
+<div class="timer">Time Remaining: <span id="time">3:00</span></div>
+
+
+<form id="quizForm"></form>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCfh7HdKMNIEdTUqN6fMv2gnyLYoy7wImA",
+  authDomain: "beredi-lms.firebaseapp.com",
+  projectId: "beredi-lms",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// 🔥 SAVE RESULT FUNCTION
+async function saveResult(name, score, percentage) {
+  try {
+    await addDoc(collection(db, "quizResults"), {
+      name: name,
+      score: score,
+      percentage: percentage,
+      module: "Module 1",
+      date: new Date()
+    });
+    console.log("✅ Saved to Firebase");
+  } catch (e) {
+    console.error("❌ Firebase Error:", e);
+  }
+}
+
+const logoPath = "beredi-logo.png";
+
+const questions = [
+{
+q: "Why is the church compared to Noah’s ark during disasters?",
+options: ["It is a place for worship only","It shelters people in times of danger and offers salvation","It is built on water like the ark","It floats above the storm"],
+answer: 1
+},
+{
+q: "According to Ecclesiastes 4:9–10, what key principle of preparedness is emphasized?",
+options: ["Self-reliance","Unity and mutual support","Stockpiling goods","Avoiding risk"],
+answer: 1
+},
+{
+q: "What are practical ways a church can serve as a refuge during disasters?",
+options: ["Hosting concerts and sports","Opening doors for evacuation, feeding, and counseling","Providing loans to members","Building fences"],
+answer: 1
+},
+{
+q: "Why is spiritual support equally important as physical aid?",
+options: ["Prevents boredom","Restores hope and emotional healing","Reduces relief cost","Fulfills legal requirements"],
+answer: 1
+},
+{
+q: "What is the focus of volunteerism in disaster preparedness?",
+options: ["Recognition","Serving others as Christ’s compassion","Collecting funds","Competition"],
+answer: 1
+},
+{
+q: "Who should be prioritized during disasters?",
+options: ["Influential people","Young and strong","Vulnerable sectors","Church leaders only"],
+answer: 2
+},
+{
+q: "Advantage of connected church network?",
+options: ["Reduces gov work","Sharing resources and support","Encourages competition","Keeps churches independent"],
+answer: 1
+},
+{
+q: "When one church is affected, others should?",
+options: ["Wait only","Offer help and prayer","Focus on self","Ignore"],
+answer: 1
+}
+];
+
+
+
+
+const form = document.getElementById("quizForm");
+
+questions.forEach((item,index)=>{
+let div = document.createElement("div");
+div.classList.add("question");
+div.innerHTML = `<strong>${index+1}. ${item.q}</strong><br>`;
+item.options.forEach((opt,i)=>{
+div.innerHTML += `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label><br>`;
+});
+form.appendChild(div);
+});
+
+
+// TIMER
+let duration = 3 * 60;
+let timerDisplay = document.getElementById("time");
+
+let timer = setInterval(function(){
+let minutes = Math.floor(duration / 60);
+let seconds = duration % 60;
+timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+if (--duration < 0) {
+clearInterval(timer);
+submitQuiz();
+// =========================
+// SAVE QUIZ RECORD
+// =========================
+let quizRecords = JSON.parse(localStorage.getItem("quizRecords")) || [];
+
+let currentModule = localStorage.getItem("currentModule") || "module1";
+
+let record = {
+    module: currentModule,
+    score: score,
+    total: total,
+    status: isPass ? "PASS" : "FAIL",
+    date: new Date().toLocaleString()
+};
+
+quizRecords.push(record);
+localStorage.setItem("quizRecords", JSON.stringify(quizRecords));
+
+
+}
+},1000);
+
+window.submitQuiz = function () {
+
+    clearInterval(timer);
+
+    let score = 0;
+
+    const correctAnswers = {};
+
+    questions.forEach((item, index) => {
+        correctAnswers[`q${index}`] = String(item.answer);
+    });
+
+    // check answers
+    for (let q in correctAnswers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+        if (!selected) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        if (selected.value === correctAnswers[q]) {
+            score++;
+        }
+    }
+
+    const total = questions.length;
+    const passingScore = Math.ceil(total * 0.75);
+
+    const resultDiv = document.getElementById("result");
+
+    const isPass = score >= passingScore;
+
+    resultDiv.textContent = `Your Result: ${isPass ? "PASS" : "FAIL"} (${score}/${total})`;
+    resultDiv.className = isPass ? "result pass" : "result fail";
+
+    // =========================
+    // IF PASSED → UPDATE PROGRESS
+    // =========================
+    if (isPass) {
+
+    let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+    const currentModule = localStorage.getItem("currentModule");
+
+    if (!currentModule) {
+        alert("Module not set. Please reopen module.");
+        return;
+    }
+
+    moduleData[currentModule] = "completed";
+
+    localStorage.setItem("moduleData", JSON.stringify(moduleData));
+
+    let progress = parseInt(localStorage.getItem("progress")) || 0;
+    progress++;
+    localStorage.setItem("progress", progress);
+
+    setTimeout(() => {
+        window.location.href = "modules.html";
+    }, 1000);
+}
+};
+
+</script>
+
+</body>
+</html>
+

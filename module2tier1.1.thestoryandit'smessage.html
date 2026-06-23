@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> The Story and Its Message </title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+    }
+
+    .intro-container{
+      position:relative;
+      width:100%;
+      height:100vh;
+    }
+
+  .intro-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
+
+    .next-btn{
+      position:absolute;
+      bottom:40px;
+      right:40px;
+      padding:15px 30px;
+      font-size:18px;
+      background:#00796b;
+      color:white;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .next-btn:hover{
+      background:#004d40;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="intro-container">
+
+  <img src="assets/images/3_The-Story-and-Its-Message.png" alt="The Story and Its Message">
+
+  <button class="next-btn" onclick="goNext()">Next →</button>
+
+</div>
+
+<script>
+
+function goNext(){
+  window.location.href = "module2tier1.1.compassion.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ADVANCED CHURCH DISASTER RESPONSE TRAINING QUIZ</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f8;
+margin:0;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+}
+
+.question{
+margin-bottom:20px;
+padding:15px;
+border-bottom:1px solid #ddd;
+}
+
+button{
+background:#2c7be5;
+color:white;
+border:none;
+padding:12px 20px;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1a5fc4;
+}
+
+#result{
+margin-top:30px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Advanced Disaster Response Training Quiz</h1>
+<p>Select the correct answer for each question.</p>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. What committee organizes church disaster response?</p>
+<label><input type="radio" name="q1" value="a"> Emergency Church Board</label><br>
+<label><input type="radio" name="q1" value="b"> Church Disaster Response Committee</label><br>
+<label><input type="radio" name="q1" value="c"> Crisis Task Council</label><br>
+<label><input type="radio" name="q1" value="d"> Safety Committee</label>
+</div>
+
+<div class="question">
+<p>2. Who leads the overall disaster response?</p>
+<label><input type="radio" name="q2" value="a"> Finance Lead</label><br>
+<label><input type="radio" name="q2" value="b"> Team Lead</label><br>
+<label><input type="radio" name="q2" value="c"> Volunteer Leader</label><br>
+<label><input type="radio" name="q2" value="d"> Logistics Officer</label>
+</div>
+
+<div class="question">
+<p>3. Who manages supplies and transportation?</p>
+<label><input type="radio" name="q3" value="a"> Logistics Operations Lead</label><br>
+<label><input type="radio" name="q3" value="b"> Team Lead</label><br>
+<label><input type="radio" name="q3" value="c"> Finance Lead</label><br>
+<label><input type="radio" name="q3" value="d"> Communications Officer</label>
+</div>
+
+<div class="question">
+<p>4. Who ensures accountability for disaster funds?</p>
+<label><input type="radio" name="q4" value="a"> Volunteer Coordinator</label><br>
+<label><input type="radio" name="q4" value="b"> Finance Lead</label><br>
+<label><input type="radio" name="q4" value="c"> Logistics Manager</label><br>
+<label><input type="radio" name="q4" value="d"> Operations Head</label>
+</div>
+
+<div class="question">
+<p>5. What reporting format is used for disaster updates?</p>
+<label><input type="radio" name="q5" value="a"> Situation Report</label><br>
+<label><input type="radio" name="q5" value="b"> Incident Memo</label><br>
+<label><input type="radio" name="q5" value="c"> Emergency Bulletin</label><br>
+<label><input type="radio" name="q5" value="d"> Disaster Log</label>
+</div>
+
+<div class="question">
+<p>6. SitReps typically include which questions?</p>
+<label><input type="radio" name="q6" value="a"> Who, What, Where, When, How</label><br>
+<label><input type="radio" name="q6" value="b"> Who, Why</label><br>
+<label><input type="radio" name="q6" value="c"> What and Where</label><br>
+<label><input type="radio" name="q6" value="d"> How and When</label>
+</div>
+
+<div class="question">
+<p>7. HVCA stands for?</p>
+<label><input type="radio" name="q7" value="a"> Hazard Vulnerability Capacity Assessment</label><br>
+<label><input type="radio" name="q7" value="b"> Human Volunteer Coordination Activity</label><br>
+<label><input type="radio" name="q7" value="c"> Hazardous Village Control Assessment</label><br>
+<label><input type="radio" name="q7" value="d"> Humanitarian Volunteer Care Agency</label>
+</div>
+
+<div class="question">
+<p>8. Planning done before disasters occur is called?</p>
+<label><input type="radio" name="q8" value="a"> Emergency Planning</label><br>
+<label><input type="radio" name="q8" value="b"> Contingency Planning</label><br>
+<label><input type="radio" name="q8" value="c"> Response Planning</label><br>
+<label><input type="radio" name="q8" value="d"> Recovery Planning</label>
+</div>
+
+<div class="question">
+<p>9. Planning activated during a disaster is?</p>
+<label><input type="radio" name="q9" value="a"> Emergency Planning</label><br>
+<label><input type="radio" name="q9" value="b"> Risk Planning</label><br>
+<label><input type="radio" name="q9" value="c"> Financial Planning</label><br>
+<label><input type="radio" name="q9" value="d"> Development Planning</label>
+</div>
+
+<div class="question">
+<p>10. One action when response begins?</p>
+<label><input type="radio" name="q10" value="a"> Confirm communication lines</label><br>
+<label><input type="radio" name="q10" value="b"> Close evacuation centers</label><br>
+<label><input type="radio" name="q10" value="c"> Cancel volunteer teams</label><br>
+<label><input type="radio" name="q10" value="d"> Stop coordination</label>
+</div>
+
+<div class="question">
+<p>11. Preparing relief goods before disaster is called?</p>
+<label><input type="radio" name="q11" value="a"> Stockpiling</label><br>
+<label><input type="radio" name="q11" value="b"> Distribution</label><br>
+<label><input type="radio" name="q11" value="c"> Procurement</label><br>
+<label><input type="radio" name="q11" value="d"> Storage planning</label>
+</div>
+
+<div class="question">
+<p>12. Volunteers who support emotional recovery are?</p>
+<label><input type="radio" name="q12" value="a"> Psychosocial responders</label><br>
+<label><input type="radio" name="q12" value="b"> Transport volunteers</label><br>
+<label><input type="radio" name="q12" value="c"> Supply managers</label><br>
+<label><input type="radio" name="q12" value="d"> Media officers</label>
+</div>
+
+<div class="question">
+<p>13. Which verse encourages leaders to train others?</p>
+<label><input type="radio" name="q13" value="a"> John 3:16</label><br>
+<label><input type="radio" name="q13" value="b"> Matthew 28:19</label><br>
+<label><input type="radio" name="q13" value="c"> 2 Timothy 2:2</label><br>
+<label><input type="radio" name="q13" value="d"> Acts 1:8</label>
+</div>
+
+<div class="question">
+<p>14. Relief distribution should prioritize?</p>
+<label><input type="radio" name="q14" value="a"> Government officials</label><br>
+<label><input type="radio" name="q14" value="b"> Vulnerable households</label><br>
+<label><input type="radio" name="q14" value="c"> Businesses</label><br>
+<label><input type="radio" name="q14" value="d"> Volunteers</label>
+</div>
+
+<div class="question">
+<p>15. Which is a disaster response partner?</p>
+<label><input type="radio" name="q15" value="a"> Red Cross</label><br>
+<label><input type="radio" name="q15" value="b"> DSWD</label><br>
+<label><input type="radio" name="q15" value="c"> LGU</label><br>
+<label><input type="radio" name="q15" value="d"> All of the above</label>
+</div>
+
+<div class="question">
+<p>16. Simulated emergency training is called?</p>
+<label><input type="radio" name="q16" value="a"> District drill</label><br>
+<label><input type="radio" name="q16" value="b"> Orientation</label><br>
+<label><input type="radio" name="q16" value="c"> Lecture</label><br>
+<label><input type="radio" name="q16" value="d"> Conference</label>
+</div>
+
+<div class="question">
+<p>17. After drills teams should?</p>
+<label><input type="radio" name="q17" value="a"> Ignore results</label><br>
+<label><input type="radio" name="q17" value="b"> Evaluate and identify gaps</label><br>
+<label><input type="radio" name="q17" value="c"> Cancel drills</label><br>
+<label><input type="radio" name="q17" value="d"> Start relief work</label>
+</div>
+
+<div class="question">
+<p>18. TOT stands for?</p>
+<label><input type="radio" name="q18" value="a"> Training of Teams</label><br>
+<label><input type="radio" name="q18" value="b"> Train the Trainers</label><br>
+<label><input type="radio" name="q18" value="c"> Teaching Operations Training</label><br>
+<label><input type="radio" name="q18" value="d"> Team Organization Training</label>
+</div>
+
+<div class="question">
+<p>19. Spiritual care during disasters includes?</p>
+<label><input type="radio" name="q19" value="a"> Trauma counseling</label><br>
+<label><input type="radio" name="q19" value="b"> Logistics planning</label><br>
+<label><input type="radio" name="q19" value="c"> Financial reporting</label><br>
+<label><input type="radio" name="q19" value="d"> Transportation</label>
+</div>
+
+<div class="question">
+<p>20. According to Matthew 5:13–16 the church should be?</p>
+<label><input type="radio" name="q20" value="a"> Leaders</label><br>
+<label><input type="radio" name="q20" value="b"> Judges</label><br>
+<label><input type="radio" name="q20" value="c"> Salt and Light</label><br>
+<label><input type="radio" name="q20" value="d"> Authorities</label>
+</div>
+
+<br>
+<button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+<!-- RESULT CARD -->
+<div id="resultCard" style="
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+  text-align:center;
+  width:300px;
+  z-index:999;
+">
+
+  <h3 id="resultText"></h3>
+
+  <button id="certBtn" onclick="downloadCertificate()" disabled>
+    Download Certificate
+  </button>
+
+  <br><br>
+  <button onclick="goToDashboard()">Go to Dashboard</button>
+
+</div>
+
+<script>
+
+function gradeQuiz(){
+
+  const answers = {
+    q1:"b", q2:"b", q3:"a", q4:"b", q5:"a",
+    q6:"a", q7:"a", q8:"b", q9:"a", q10:"a",
+    q11:"a", q12:"a", q13:"c", q14:"b", q15:"d",
+    q16:"a", q17:"b", q18:"b", q19:"a", q20:"c"
+  };
+
+  let score = 0;
+
+  for(let q in answers){
+    let radios = document.getElementsByName(q);
+
+    let answered = false;
+
+    for(let i=0;i<radios.length;i++){
+      if(radios[i].checked){
+        answered = true;
+        if(radios[i].value === answers[q]){
+          score++;
+        }
+      }
+    }
+
+    if(!answered){
+      alert("Please answer all questions before submitting.");
+      return;
+    }
+  }
+
+  let total = 20;
+  let percent = (score/total)*100;
+  let isPass = percent >= 80;
+
+  // RESULT TEXT
+  document.getElementById("result").innerHTML =
+    "Score: " + score + " / 20 (" + percent + "%) — " + (isPass ? "PASS" : "RETAKE REQUIRED");
+
+  // =========================
+  // ✅ SAVE QUIZ RECORD (CORRECT PLACE)
+  // =========================
+  let quizRecords = JSON.parse(localStorage.getItem("quizRecords")) || [];
+
+  let currentModule = localStorage.getItem("currentModule") || "module2 ";
+
+  let record = {
+    module: currentModule,
+    score: score,
+    total: total,
+    status: isPass ? "PASS" : "FAIL",
+    date: new Date().toLocaleString()
+  };
+
+  quizRecords.push(record);
+  localStorage.setItem("quizRecords", JSON.stringify(quizRecords));
+
+  // =========================
+  // SHOW RESULT CARD
+  // =========================
+  document.getElementById("resultCard").style.display = "block";
+  document.getElementById("resultText").innerHTML =
+    `Score: ${score}/20 <br> Result: ${isPass ? "PASS" : "FAIL"}`;
+
+  // enable certificate only if pass
+  document.getElementById("certBtn").disabled = !isPass;
+
+  // save pass flag
+  localStorage.setItem("quizPassed", isPass);
+
+  // =========================
+  // MODULE PROGRESS
+  // =========================
+  if(isPass){
+
+    let moduleData = JSON.parse(localStorage.getItem("moduleData")) || {};
+
+    moduleData[currentModule] = "completed";
+
+    // unlock next module (edit if needed)
+    if(currentModule === "module2") moduleData["module3"] = "unlocked";
+
+    localStorage.setItem("moduleData", JSON.stringify(moduleData));
+  }
+}
+
+
+// =========================
+// CERTIFICATE
+// =========================
+function downloadCertificate(){
+
+  const passed = localStorage.getItem("quizPassed");
+
+  if(passed !== "true"){
+    alert("You must pass first.");
+    return;
+  }
+
+  window.location.href = "certificate.html";
+}
+
+
+// =========================
+// BACK TO DASHBOARD
+// =========================
+function goToDashboard(){
+  window.location.href = "dashboard.html";
+}
+
+</script>

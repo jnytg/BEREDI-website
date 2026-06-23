@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Module 2 – Disaster Response (Tier 1): General Training | BEREDi</title>
+
+ 
+
+<style>
+  :root {
+  --brand:#1e3a8a;     
+  --ink:#0f172a;        
+  --muted:#475569;     
+  --bg:#f1f5f9;         
+  --card:#ffffff;       
+  --accent:#e5e7eb;     
+  --warn:#f8fafc;       
+}
+
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(30,58,138,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(15,23,42,0.15), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(100,116,139,0.18), transparent 45%),
+    linear-gradient(135deg, #e5e7eb, #f8fafc);
+  background-attachment: fixed;
+  color:var(--ink);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+}
+
+.hero {
+      position: relative;
+      background-image: url("https://mail.google.com/mail/u/0?ui=2&ik=2787aa3ad7&attid=0.1&permmsgid=msg-a:r7323204659345036136&th=19b5eb195bbd8fea&view=att&disp=safe&realattid=19b5eb181421a8e9c711&zw");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      padding: 80px 20px;
+      min-height: 500px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin-left: 10%;
+    }
+
+.wrap{
+  max-width:1080px;
+  margin:40px auto;
+  padding:36px 26px;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  border-radius:24px;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+.banner{
+  background:linear-gradient(135deg,#0f172a,#b5cce4);
+  color:#fff;
+  border-radius:18px;
+  padding:32px 26px;
+  margin-bottom:24px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.banner h1{
+  margin:0 0 6px 0;
+  font-size:28px;
+}
+
+.banner p{
+  margin:0;
+  opacity:.9;
+}
+
+
+.grid{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:20px;
+}
+
+@media (max-width:960px){
+  .grid{grid-template-columns:1fr}
+}
+
+nav{
+  position:sticky;
+  top:18px;
+  align-self:start;
+  background:var(--card);
+  border:1px solid #cbd5e1;
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 12px 25px rgba(0,0,0,.1);
+}
+
+nav h3{
+  margin:4px 0 12px 0;
+  font-size:13px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+nav a{
+  display:block;
+  padding:10px 12px;
+  border-radius:10px;
+  color:var(--ink);
+  text-decoration:none;
+  transition: background .2s transform .2s;
+}
+
+nav a:hover{
+  background:#e5e7eb;
+  transform:translateX(4px);
+}
+
+.section{
+  background:var(--card);
+  border:1px solid #cbd5e1;
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:20px;
+  box-shadow:0 15px 30px rgba(0,0,0,.1);
+}
+
+.section h2{
+  margin-top:0;
+  font-size:22px;
+}
+
+.lead{
+  color:var(--muted);
+}
+
+.kicker{
+  display:inline-block;
+  background:#e5e7eb;
+  color:#1e293b;
+  border-radius:999px;
+  padding:5px 12px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.list{
+  margin:12px 0 0 0;
+  padding-left:20px;
+}
+
+.list li{
+  margin:6px 0;
+}
+
+.callout{
+  background:#e0e7ff;
+  border-left:4px solid #1e3a8a;
+  padding:14px 16px;
+  border-radius:12px;
+  margin:14px 0;
+  color:#1e293b;
+}
+
+.warn{
+  background:#f1f5f9;
+  border-left-color:#475569;
+  color:#334155;
+}
+
+
+.reflection{
+  background:#f8fafc;
+  border:1px dashed #94a3b8;
+  border-radius:14px;
+  padding:16px;
+  margin-top:14px;
+}
+
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.btn{
+  appearance:none;
+  border:0;
+  border-radius:12px;
+  padding:11px 16px;
+  cursor:pointer;
+  font-weight:600;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#9ea2a5,#2c5c77);
+  color:#fff;
+  box-shadow:0 8px 0 #020617;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn-ghost{
+  background:#e5e7eb;
+  color:#0f172a;
+}
+
+details{
+  background:#f8fafc;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:12px 14px;
+}
+
+details summary{
+  cursor:pointer;
+  font-weight:600;
+  color:#0f172a;
+}
+ 
+footer{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:28px;
+}
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="banner" role="banner">
+      <h1>Module 2 – Disaster Response (Tier 1): General Training</h1>
+      <p>Equip every church member and local volunteer to respond with compassion, readiness, and basic skills in their immediate community.</p>
+    </header>
+
+    <div class="grid">
+      
+      <nav aria-label="Lesson navigation">
+        <h3>Lessons</h3>
+        <a href="#l1">1. Biblical Foundation: The Good Samaritan</a>
+        <a href="#l2">2. Practical Immediate Response</a>
+        <a href="#l3">3. Emotional &amp; Spiritual Care</a>
+        <a href="#l4">4. Basic Lifesaving Skills</a>
+        <a href="#l5">5. Volunteerism &amp; Commitment</a>
+        <hr />
+      </nav>
+
+      <main id="content">
+       
+       <section id="l1" class="section" aria-labelledby="l1-title">
+          <span class="kicker">Lesson 1</span>
+          <h2 id="l1-title">Biblical Foundation: The Good Samaritan (Luke 10:25–37)</h2>
+          <p class="lead">The parable moves love from words to action. Jesus ends with a commission: <em>“Go and do likewise.”</em></p>
+          <p>The story shows compassion that is immediate, personal, and sacrificial: the Samaritan <strong>stopped</strong>, <strong>treated wounds</strong>, <strong>sheltered</strong> the victim, and <strong>paid</strong> for continued care. Disaster response flows from this same posture—quick, tangible love in times of crisis.</p>
+          <ul class="list">
+            <li><strong>Compassion → Action:</strong> help the wounded, feed the hungry, comfort the fearful.</li>
+            <li><strong>Mandate for all believers:</strong> every member is a “first responder of faith.”</li>
+            <li><strong>Obedience and witness:</strong> humanitarian service is a spiritual act of worship.</li>
+          </ul>
+          <div class="reflection" role="note">
+            <strong>Reflect:</strong> Who is your “neighbor” in current crises? What does “do likewise” look like for your church?
+          </div>
+          <div class="cta-row">
+
+            <a class="btn btn-primary" href="module2tier1lesson2.html">Next: Lesson 2</a>
+            
+          </div>
+        </section>
